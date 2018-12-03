@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input [type]="password_type" name="password" [(ngModel)]="userData.password"></ion-input>
+        <button ion-button item-end icon-only clear large (click)="togglePasswordMode()">
+          <ion-icon name="eye"></ion-icon>
+        </button>
+      </ion-item>
+      
+    </ion-list>
+
+    <div padding>
+        <button ion-button color="primary" large round full (click)="logIn()">Masuk</button>
+    </div>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "pasar",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
