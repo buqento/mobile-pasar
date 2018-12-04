@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+      <ion-label>Pilih Tanggal</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" max="{{dt}}" [(ngModel)]="dt"></ion-datetime>
+  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      Pilih Pasar
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item (click)="openKomuditas(dt)">
+        <ion-icon name="nutrition" item-start></ion-icon>
+        Sederhana
+      </button>  
+    </ion-list>
+  </ion-card>
+</ion-content>

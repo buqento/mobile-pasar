@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
-import { HomePage } from '../home/home';
+import { KomuditasPage } from '../komuditas/komuditas';
 
 @IonicPage()
 @Component({
@@ -14,6 +14,7 @@ export class DetailPage {
   nama: any;
   harga: any;
   responseData: any;
+  tanggal: any;
   userData = {
     'id':'',
     'harga':''
@@ -25,6 +26,7 @@ export class DetailPage {
       this.id = navParams.get('pId');
       this.nama = navParams.get('pNama');
       this.harga = navParams.get('pHarga');
+      this.tanggal = navParams.get('pTanggal');
 
       this.userData.id = this.id;
       this.userData.harga = this.harga;
@@ -37,9 +39,15 @@ export class DetailPage {
   update(){
     if(this.userData.harga){
       this.authService.postData(this.userData, 'update-produk').then(() =>{
-        this.navCtrl.push(HomePage);
+        this.openKomuditas(this.tanggal);
       })
     }
-    
+  }
+
+  openKomuditas(tanggal){
+    let data = {
+      pTanggal:tanggal
+    }
+    this.navCtrl.push(KomuditasPage, data);
   }
 }

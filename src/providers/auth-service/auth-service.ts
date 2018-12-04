@@ -31,4 +31,14 @@ export class AuthService {
       });
     });
   }
+
+  getProduksByTanggal(tanggal){
+    return new Promise(resolve => {
+      this.http.get(api+'produks/'+tanggal).subscribe(data => {
+        resolve(data.json());
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

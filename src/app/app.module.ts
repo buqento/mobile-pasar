@@ -10,12 +10,16 @@ import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
 import { DetailPage } from '../pages/detail/detail';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+import { KomuditasPage } from '../pages/komuditas/komuditas';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
+    DashboardPage,
+    KomuditasPage,
     DetailPage
   ],
   imports: [
@@ -27,6 +31,8 @@ import { DetailPage } from '../pages/detail/detail';
     MyApp,
     HomePage,
     LoginPage,
+    DashboardPage,
+    KomuditasPage,
     DetailPage
   ],
   providers: [
