@@ -1,15 +1,17 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Komuditas</ion-title>
+    <ion-buttons start>
+        <button ion-button icon-only (click)="openDashboard()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-item-divider color="primary">
     {{tanggal}}
-    <!-- <button ion-button icon-only clear item-end color="light" (click)="reloadPage()">
-      <ion-icon name="refresh"></ion-icon>
-    </button> -->
   </ion-item-divider>
 
   <ion-card *ngFor="let produk of produks" (click)="openDetail(produk.id, produk.nama, produk.harga, produk.tanggal)">

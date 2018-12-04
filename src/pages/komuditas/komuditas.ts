@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { DetailPage } from '../detail/detail';
+import { DashboardPage } from '../dashboard/dashboard';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,7 @@ export class KomuditasPage {
 
   constructor(public navCtrl: NavController, 
     public authService: AuthService,
+    public loadingCtrl: LoadingController,
     public navParams: NavParams) {
       this.tanggal = navParams.get('pTanggal');
   }
@@ -25,12 +27,15 @@ export class KomuditasPage {
   }
 
   getProduksByTanggal(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      showBackdrop: true
+    });
+    loading.present();
     this.authService.getProduksByTanggal(this.tanggal).then((result) => {
       this.responseData = result;
       this.produks = this.responseData;
-
-      console.log(this.responseData);
-      
+      loading.dismiss();
     })
   }
 
@@ -42,6 +47,10 @@ export class KomuditasPage {
       pTanggal: tanggal
     }
     this.navCtrl.push(DetailPage, data);
+  }
+
+  openDashboard(){
+    this.navCtrl.setRoot(DashboardPage);
   }
 
 }

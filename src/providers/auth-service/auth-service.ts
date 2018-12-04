@@ -41,4 +41,14 @@ export class AuthService {
       });
     });
   }
+
+  getPasars() {
+    return new Promise(resolve => {
+      this.http.get(api+'pasars').subscribe(data => {
+        resolve(data.json());
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { KomuditasPage } from '../komuditas/komuditas';
 
@@ -22,6 +22,7 @@ export class DetailPage {
 
   constructor(public navCtrl: NavController, 
     public authService: AuthService,
+    public loadingCtrl: LoadingController,
     public navParams: NavParams) {
       this.id = navParams.get('pId');
       this.nama = navParams.get('pNama');
@@ -37,9 +38,15 @@ export class DetailPage {
   }
 
   update(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      showBackdrop: true
+    });
+    loading.present();
     if(this.userData.harga){
       this.authService.postData(this.userData, 'update-produk').then(() =>{
         this.openKomuditas(this.tanggal);
+        loading.dismiss();
       })
     }
   }

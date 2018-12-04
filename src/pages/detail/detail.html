@@ -7,15 +7,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-item-divider color="primary">
+    {{tanggal}}
+  </ion-item-divider>
 
-  <h1>{{nama}}</h1>
+  <ion-card>
+    <img src="https://dummyimage.com/600x200/32db64/fff&text=Komuditas"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{nama}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
 
+  
   <ion-list>
 
     <ion-item>
       <ion-label floating>Harga</ion-label>
-      <ion-input type="text" [(ngModel)]="userData.harga"></ion-input>
+      <ion-input type="number" [(ngModel)]="userData.harga"></ion-input>
     </ion-item>
     
   </ion-list>

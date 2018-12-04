@@ -9,8 +9,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 })
 export class LoginPage {
   userData = {
-    'username': '',
-    'password': ''
+    'username': 'user',
+    'password': 'password'
   }
   password_type: string = 'password';
 
