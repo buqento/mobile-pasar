@@ -13,6 +13,7 @@ export class KomuditasPage {
   responseData: any;
   produks: any;
   tanggal: any;
+  namaPasar: any;
   empty:boolean = true;
 
   constructor(public navCtrl: NavController, 
@@ -20,6 +21,8 @@ export class KomuditasPage {
     public loadingCtrl: LoadingController,
     public navParams: NavParams) {
       this.tanggal = navParams.get('pTanggal');
+      this.namaPasar = navParams.get('pNamaPasar');
+
   }
 
   ionViewDidLoad() {
@@ -39,12 +42,13 @@ export class KomuditasPage {
     })
   }
 
-  openDetail(id, nama, harga, tanggal){
+  openDetail(id, nama, harga, tanggal, gambar){
     let data = {
       pId: id,
       pNama: nama,
       pHarga: harga,
-      pTanggal: tanggal
+      pTanggal: tanggal,
+      pGambar: gambar
     }
     this.navCtrl.push(DetailPage, data);
   }

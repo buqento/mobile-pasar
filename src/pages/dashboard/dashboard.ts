@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { KomuditasPage } from '../komuditas/komuditas';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { AkunPage } from '../akun/akun';
 
 @IonicPage()
 @Component({
@@ -10,26 +11,29 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class DashboardPage {
 
-  dt:any;
+  tanggal_today:any;
   responseData:any;
   pasars:any;
+  PushAkun: any;
 
   constructor(public navCtrl: NavController, 
     public authService: AuthService,
     public loadingCtrl: LoadingController,
     public navParams: NavParams) {
-      this.dt = new Date().toISOString().slice(0, 10);
+      this.tanggal_today = new Date().toISOString().slice(0, 10);
+      this.PushAkun = AkunPage;
   }
 
   ionViewDidLoad() {
     this.getPasars();
   }
 
-  openKomuditas(tanggal){
+  openKomuditas(tanggal, namaPasar){
     let data = {
-      pTanggal:tanggal
+      pTanggal:tanggal,
+      pNamaPasar:namaPasar
     }
-    this.navCtrl.setRoot(KomuditasPage, data);
+    this.navCtrl.push(KomuditasPage, data);
   }
 
   getPasars(){

@@ -26,7 +26,7 @@ export class LoginPage {
   }
 
   logIn(){
-    this.navCtrl.push(DashboardPage);
+    this.navCtrl.setRoot(DashboardPage);
   }
 
 }

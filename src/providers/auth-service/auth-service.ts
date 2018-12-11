@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let api = 'http://timoer.info/api-pasar/';
-
+// let api = 'http://timoer.info/api-pasar/';
+let api = 'https://www.rinjani.id/api/pasar/';
 @Injectable()
 export class AuthService {
 

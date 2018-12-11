@@ -15,6 +15,7 @@ export class DetailPage {
   harga: any;
   responseData: any;
   tanggal: any;
+  gambar: any;
   userData = {
     'id':'',
     'harga':''
@@ -28,6 +29,7 @@ export class DetailPage {
       this.nama = navParams.get('pNama');
       this.harga = navParams.get('pHarga');
       this.tanggal = navParams.get('pTanggal');
+      this.gambar = navParams.get('pGambar');
 
       this.userData.id = this.id;
       this.userData.harga = this.harga;

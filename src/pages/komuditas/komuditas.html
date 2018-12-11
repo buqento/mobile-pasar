@@ -1,26 +1,39 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Komoditas</ion-title>
-    <ion-buttons start>
-        <button ion-button icon-only (click)="openDashboard()">
-          <ion-icon name="home"></ion-icon>
-        </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item-divider color="primary">
-    {{tanggal}}
+  <ion-item-divider color="light">
+    <p item-end>{{tanggal}}</p>
+    <ion-icon name="calendar" item-end></ion-icon>
   </ion-item-divider>
 
-  <ion-card *ngFor="let produk of produks" (click)="openDetail(produk.id, produk.nama, produk.harga, produk.tanggal)">
+  <ion-list [virtualScroll]="produks">
+
+    <ion-item *virtualItem="let produk" (click)="openDetail(produk.id, produk.nama, produk.harga, produk.tanggal, produk.gambar)">
+      <ion-avatar item-start>
+        <ion-img [src]="produk.gambar"></ion-img>
+      </ion-avatar>
+      <ion-card-title>
+        <div class="card-title">{{produk.nama}}</div>
+      </ion-card-title>
+      <div class="card-subtitle">Rp.{{produk.vharga}}</div>
+      <p item-end>
+        <ion-icon name="checkmark-circle" color="secondary" *ngIf="produk.status != 0"></ion-icon>
+      </p>
+    </ion-item>
+  
+  </ion-list>
+
+  <!-- <ion-card *ngFor="let produk of produks" (click)="openDetail(produk.id, produk.nama, produk.harga, produk.tanggal, produk.gambar)">
     <ion-item no-padding>
 
       <ion-thumbnail item-start>
-      <img src="https://dummyimage.com/200x200/32db64/ffffff&text=Ok" *ngIf="produk.status != 0">
-      <img src="https://dummyimage.com/200x200/f53d3d/ffffff&text=Komoditas" *ngIf="produk.status != 1">
+      <img src="https://rinjani.id/api/img/{{produk.gambar}}">
       </ion-thumbnail>  
+      <ion-img item-start width="300" height="200" src="https://rinjani.id/api/img/{{produk.gambar}}"></ion-img>
 
       <ion-card-content no-padding>
         <ion-card-title>
@@ -30,10 +43,12 @@
         
       </ion-card-content>
 
-      <ion-icon name="arrow-forward" item-end></ion-icon>
+      <p item-end>
+          <ion-icon name="checkmark-circle" color="secondary" *ngIf="produk.status != 0"></ion-icon>
+      </p>
 
     </ion-item>
 
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>

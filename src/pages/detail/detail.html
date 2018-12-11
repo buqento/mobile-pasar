@@ -1,19 +1,20 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Update Harga</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Ubah Harga</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-item-divider color="primary">
-    {{tanggal}}
+  <ion-item-divider color="light">
+    <p item-end>{{tanggal}}</p>
+    <ion-icon name="calendar" item-end></ion-icon>
   </ion-item-divider>
 
   <ion-card>
-    <img src="https://dummyimage.com/600x200/32db64/fff&text=Komoditas"/>
+    <img src="{{gambar}}"/>
     <ion-card-content>
       <ion-card-title>
         {{nama}}
@@ -28,11 +29,25 @@
       <ion-label floating>Harga</ion-label>
       <ion-input type="number" [(ngModel)]="userData.harga"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Satuan</ion-label>
+      <ion-input type="number" value="1"></ion-input>
+      <ion-select [(ngModel)]="satuan">
+        <ion-option value="Kg" selected>Kg</ion-option>
+        <ion-option value="Unit">Unit</ion-option>
+        <ion-option value="lusin">Lusin</ion-option>
+        <ion-option value="Kodi">Kodi</ion-option>
+        <ion-option value="Gross">Gross</ion-option>
+        <ion-option value="Rim">Rim</ion-option>
+        <ion-option value="Meter">Meter</ion-option>
+      </ion-select>
+    </ion-item>
     
   </ion-list>
 
   <div padding>
-      <button ion-button color="primary" large round full (click)="update()">Update</button>
+      <button ion-button color="primary" large round full (click)="update()">Ubah</button>
   </div>
 
 </ion-content>

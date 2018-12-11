@@ -12,6 +12,7 @@ import { HttpModule } from '@angular/http';
 import { DetailPage } from '../pages/detail/detail';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { KomuditasPage } from '../pages/komuditas/komuditas';
+import { AkunPage } from '../pages/akun/akun';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { KomuditasPage } from '../pages/komuditas/komuditas';
     LoginPage,
     DashboardPage,
     KomuditasPage,
-    DetailPage
+    DetailPage,
+    AkunPage
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -33,7 +35,8 @@ import { KomuditasPage } from '../pages/komuditas/komuditas';
     LoginPage,
     DashboardPage,
     KomuditasPage,
-    DetailPage
+    DetailPage,
+    AkunPage
   ],
   providers: [
     StatusBar,
